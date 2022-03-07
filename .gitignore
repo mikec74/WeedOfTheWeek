@@ -1,0 +1,2 @@
+# SQLite database. Not needed on GitHub or Heroku. Can recreate structure from program.
+weeds.db

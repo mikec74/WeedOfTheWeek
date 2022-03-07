@@ -1,0 +1,21 @@
+.weed-page-header {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.weed-header {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.scientific-name {
+    font-style: italic;
+}
+
+.weed-text {
+    margin-top: 0;
+}
+
+.weed-image {
+    margin-bottom: 30px;
+}

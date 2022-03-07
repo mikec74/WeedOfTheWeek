@@ -1,0 +1,89 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{header.image_url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto weed-page-header">
+          <div class="site-heading">
+            <h1>{{header.title}}</h1>
+            <span class="subheading">{{header.subtitle}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto weed-header">
+        {% for weed in all_weeds %}
+        <div class="post-preview">
+          <h2 class="post-title">
+            Common Name
+          </h2>
+          {% for common_name in weed.weed_common_names %}
+            {% if common_name.is_primary == True %}
+              <p class="weed-text">
+                {{ common_name.common_name }}
+              </p>
+            {% endif %}
+          {% endfor %}
+          <h2 class="post_title">
+            Other Common Names
+          </h2>
+          <p class="weed-text">
+            {{ weed.weed_common_names | comma_separated }}
+          </p>
+          <h2 class="post-title">
+            Scientific Name
+          </h2>
+          <p class="weed-text scientific-name">
+            {{weed.scientific_name}}
+          </p>
+          <h2 class="post-title">
+            Description
+          </h2>
+          <p class="weed-text">
+            {{ weed.description | safe }}
+          </p>
+          <h2 class="post-title">
+            Removal Method
+          </h2>
+          <p class="weed-text">
+            {{ weed.removal_method | safe }}
+          </p>
+          <h2 class="post-title">
+            Comments
+          </h2>
+          <p class="weed-text">
+            {{ weed.comments | safe }}
+          </p>
+          <h2 class="post-title">
+            Location
+          </h2>
+          <p class="weed-text">
+            {{ weed.location_desc | safe }}
+          </p>
+          <div class="weed-image">
+            <img src="{{ url_for('static', filename=weed.location_map) }}"/>
+            <div>Weed locations indicated in yellow</div>
+          </div>
+          <h2 class="post-title">
+            Photos
+          </h2>
+          <div>
+            {% for photo in weed.weed_photos | sort(attribute="display_order") %}
+              <div class="weed-image">
+                <img src="{{ url_for('static', filename=photo.photo_url) }}"/>
+                <div>{{ photo.caption | safe }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}

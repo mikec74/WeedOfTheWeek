@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 import os
 
 
@@ -94,7 +95,8 @@ def show_page():
     all_weeds = Weed.query.order_by(Weed.display_order).all()
     return render_template("index.html",
                            header=header,
-                           all_weeds=all_weeds
+                           all_weeds=all_weeds,
+                           current_year=datetime.utcnow().year
                            )
 
 

@@ -90,7 +90,7 @@
             {{ weed.location_desc | safe }}
           </p>
           <div class="weed-image">
-            <img src="{{ url_for('static', filename=weed.location_map) }}"/>
+            <img class="img-fluid" src="{{ url_for('static', filename=weed.location_map) }}"/>
             <div>Weed locations indicated in yellow</div>
           </div>
         </div>
@@ -108,6 +108,11 @@
               </div>
             {% endfor %}
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <hr class="weed-divider"/>
         </div>
       </div>
     </div>

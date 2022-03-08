@@ -43,31 +43,47 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <h2 class="post-title">
+          <h2>
             Scientific Name
           </h2>
           <p class="weed-text scientific-name">
             {{weed.scientific_name}}
           </p>
-          <h2 class="post-title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Description
           </h2>
           <p class="weed-text">
             {{ weed.description | safe }}
           </p>
-          <h2 class="post-title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Removal Method
           </h2>
           <p class="weed-text">
             {{ weed.removal_method | safe }}
           </p>
-          <h2 class="post-title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Comments
           </h2>
           <p class="weed-text">
             {{ weed.comments | safe }}
           </p>
-          <h2 class="post-title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Location
           </h2>
           <p class="weed-text">
@@ -77,21 +93,24 @@
             <img src="{{ url_for('static', filename=weed.location_map) }}"/>
             <div>Weed locations indicated in yellow</div>
           </div>
-          <h2 class="post-title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Photos
           </h2>
           <div>
             {% for photo in weed.weed_photos | sort(attribute="display_order") %}
               <div class="weed-image">
-                <img src="{{ url_for('static', filename=photo.photo_url) }}"/>
+                <img class="img-fluid" src="{{ url_for('static', filename=photo.photo_url) }}"/>
                 <div>{{ photo.caption | safe }}</div>
               </div>
             {% endfor %}
           </div>
-
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
   {% endfor %}
 
 {% include "footer.html" %}

@@ -5,7 +5,7 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto weed-page-header">
+        <div class="col-lg-10 col-md-10 mx-auto">
           <div class="site-heading">
             <h1>{{header.title}}</h1>
             <span class="subheading">{{header.subtitle}}</span>
@@ -15,12 +15,11 @@
     </div>
   </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto weed-header">
-        {% for weed in all_weeds %}
-        <div class="post-preview">
-          <h2 class="post-title">
+  {% for weed in all_weeds %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Common Name
           </h2>
           {% for common_name in weed.weed_common_names %}
@@ -30,12 +29,20 @@
               </p>
             {% endif %}
           {% endfor %}
-          <h2 class="post_title">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2>
             Other Common Names
           </h2>
           <p class="weed-text">
             {{ weed.weed_common_names | comma_separated }}
           </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
           <h2 class="post-title">
             Scientific Name
           </h2>
@@ -81,9 +88,10 @@
               </div>
             {% endfor %}
           </div>
-        {% endfor %}
-      </div>
+
     </div>
   </div>
+  </div>
+  {% endfor %}
 
 {% include "footer.html" %}

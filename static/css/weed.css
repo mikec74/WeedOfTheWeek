@@ -23,3 +23,10 @@
 .weed-divider {
     background-color: black;
 }
+
+.weed-announcement {
+    background-color: red;
+    color: white;
+    margin-bottom: 50px;
+    margin-top: -50px;
+}

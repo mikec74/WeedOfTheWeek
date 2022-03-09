@@ -37,6 +37,7 @@ class PageHeader(db.Model):
     image_url = db.Column(db.String(250), nullable=False)
     title = db.Column(db.String(100), nullable=False)
     subtitle = db.Column(db.String(100), nullable=False)
+    announcement = db.Column(db.Text, nullable=True)
 
 
 class Weed(db.Model):

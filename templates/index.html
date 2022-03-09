@@ -15,6 +15,16 @@
     </div>
   </header>
 
+  {% if header.announcement != None %}
+    <div class="container-fluid">
+      <div class="row weed-announcement">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{ header.announcement | safe }}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
   {% for weed in all_weeds %}
     <div class="container">
       <div class="row">

@@ -20,8 +20,13 @@
     margin-bottom: 30px;
 }
 
+.weed-whitespace {
+    height: 40px;
+}
+
 .weed-divider {
-    background-color: black;
+    background-color: darkgreen;
+    height: 5px;
 }
 
 .weed-announcement {
